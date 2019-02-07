@@ -135,7 +135,7 @@ Start:
   Print "IY %4xpry"
   Print "SP %4xprs"
   Print "R %2xprr"
-  Print "i %2xpri"
+  Print "I %2xpri"
   Print "Register dump by index:"
   Print "B %2xpr", $0
   Print "C %2xpr", $1
@@ -155,10 +155,10 @@ Start:
   Print "AF %4xpr", $f
   Print "R %2xpr", $10
   Print "I %2xpr", $11
-  Print "AF' %4xpr", $12
-  Print "BC' %4xpr", $13
-  Print "DE' %4xpr", $14
-  Print "HL' %4xpr", $15
+  Print "BC' %4xpr", $12
+  Print "DE' %4xpr", $13
+  Print "HL' %4xpr", $14
+  Print "AF' %4xpr", $15
   Print ""
   Print "Part 3: string and char printing"
   Print "The string says: %smb", <NullTerminatedString, >NullTerminatedString
