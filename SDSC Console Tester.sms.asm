@@ -72,7 +72,6 @@ Start:
   out ($3e), a
 
   Print "SDSC Console Tester"
-  /*
   Print "Part 1: commands"
   Print "Control command 1: suspend emulation"
   SendControl 1
@@ -95,8 +94,7 @@ Start:
   Print "Control command 5: not a valid command"
   SendControl 5
   Print ""
-*/
-  Print "Part 2: messages"
+  Print "Part 2: message formatting"
   Print "We've already been printing bare strings. Now for some formatting..."
   ld b, -3
   Print "Register B as signed decimal, using index (expect -3): %dpr", $0
@@ -115,10 +113,11 @@ Start:
   ld de,$f00d
   ld bc,$12ab
   exx
+  Print ""
+  Print "Part 3: exercising the registers"
   Print "Register DE' as hex, using index, width 8 (expect 0000f00d): %8xpr", $13
   Print "Register BC' as binary, using index, width 16 (expect 0001001010101011): %16bpr", $12
   Print "Invalid register index: %dpr", $20
-  /*
   Print "Register dump by letter:"
   Print "A %2xpra"
   Print "F %2xprf"
@@ -160,9 +159,8 @@ Start:
   Print "BC' %4xpr", $13
   Print "DE' %4xpr", $14
   Print "HL' %4xpr", $15
-  */
   Print ""
-  Print "String printing"
+  Print "Part 3: string and char printing"
   Print "The string says: %smb", <NullTerminatedString, >NullTerminatedString
   Print "Truncated width: %8smb", <NullTerminatedString, >NullTerminatedString
   Print "Padded width: %16smb", <NullTerminatedString, >NullTerminatedString
@@ -181,7 +179,7 @@ Start:
   Print "The string in VRAM (using wrapped address) says: %svb", 0, $d0
   Print "The fifth character is %amb", <(NullTerminatedString + 4), >(NullTerminatedString + 4)
   Print ""
-  Print "Data sources"
+  Print "Part 4: data sources"
   ; RAM
   ld hl, $55aa
   ld ($c001),hl
@@ -216,7 +214,8 @@ Start:
   Print "RAM byte (expect aa): %xmb", $01, $c0
   Print "PRAM byte (expect 54): %xvr", $10
   Print "VDP register (expect 32): %xvr", $08
-  
+  Print ""
+  Print "Done"
 
 -:jr -
 
